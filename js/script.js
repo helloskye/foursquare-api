@@ -24,6 +24,7 @@ $(document).ready(function(){
         addResultHeader();
         var query = $('#search-query').val();
         // TODO 1: Call searchFoursquare with the right parameters
+    var url = searchEndpoint + "?" + "clientId=" + "clientSecret";    
     });
 });
 
@@ -34,8 +35,14 @@ $(document).ready(function(){
 //   latLon: String that represents the location nearby which you want to search.
 //   callback: single-parameter function that processes the search results.
 function searchFoursquare(query, latLon, callback) {
-    // TODO 2: query the fourquare server here, using jQuery's $.get() function.
-}
+    
+    // TODO 2: query the foursquare server here, using jQuery's $.get() function.
+    $.get(url,function(response){
+    console.log(response.data[0].url);
+        
+    });
+}    
+
 
 // Clears the html result elements, so you can then populate them with fresh results.
 function clearResults() {
